@@ -29,6 +29,7 @@
 
 	// Nav.
 		var $nav = $('#nav');
+		var $header = $('#header');
 
 		if ($nav.length > 0) {
 
@@ -38,9 +39,11 @@
 						mode: 'top',
 						enter: function() {
 							$nav.addClass('alt');
+							$header.addClass('shrink');
 						},
 						leave: function() {
 							$nav.removeClass('alt');
+							$header.removeClass('shrink');
 						},
 					});
 

@@ -2640,11 +2640,24 @@ input, select, textarea {
 		margin-bottom: 3em;
 	}
 
-	header.major h2 {
-		font-size: 2em;
-		font-weight: 900;
-		color: #000000 !important;
-	}			header.major h2:after {
+		#header h1 {
+			font-size: 2em;
+			font-weight: 900;
+			color: #ffffff !important;
+		}
+
+		#header h1 br {
+			display: none;
+		}
+
+		#header.shrink h1 br {
+			display: block;
+		}
+
+		#header.shrink h1 .cross-text {
+			display: block;
+			font-size: 1em;
+		}			header.major h2:after {
 				display: block;
 				content: '';
 				width: 3.25em;
@@ -2682,11 +2695,11 @@ input, select, textarea {
 			margin-bottom: 0;
 		}
 
-			header.major h2 {
-				font-size: 1.5em;
-			}
-
-			header.major p {
+		header.major h2 {
+			font-size: 1.5em;
+			font-weight: 900;
+			color: #000000 !important;
+		}			header.major p {
 				font-size: 1em;
 				letter-spacing: 0;
 			}
@@ -3136,6 +3149,59 @@ input, select, textarea {
 
 		}
 
+		/* Branding in nav bar when header shrinks */
+		#header.shrink .logo,
+		#header.shrink h1 {
+			position: fixed;
+			top: 0.5em;
+			opacity: 1;
+			transition: all 0.3s ease;
+			z-index: 10001;
+		}
+
+		#header.shrink .logo {
+			left: -2.5em;
+			width: 2.2em;
+			height: 2.2em;
+			animation: slideInLogo 0.3s ease forwards;
+		}
+
+		#header.shrink .logo img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		#header.shrink h1 {
+			left: -8em;
+			font-size: 0.9em;
+			margin: 0;
+			white-space: nowrap;
+			animation: slideInTitle 0.3s ease forwards;
+		}
+
+		@keyframes slideInLogo {
+			from {
+				left: -2.5em;
+				opacity: 0;
+			}
+			to {
+				left: 1em;
+				opacity: 1;
+			}
+		}
+
+		@keyframes slideInTitle {
+			from {
+				left: -8em;
+				opacity: 0;
+			}
+			to {
+				left: 4em;
+				opacity: 1;
+			}
+		}
+
 		@media screen and (max-width: 980px) {
 
 			#header {
@@ -3353,6 +3419,12 @@ input, select, textarea {
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
 			color: #636363;
+		}
+
+		#main header.major h2 {
+			color: #000000 !important;
+			font-weight: 900;
+			font-size: 2em;
 		}
 
 		#main blockquote {

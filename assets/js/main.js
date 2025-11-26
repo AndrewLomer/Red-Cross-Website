@@ -38,12 +38,28 @@
 					.scrollex({
 						mode: 'top',
 						enter: function() {
+							// Make nav sticky
 							$nav.addClass('alt');
-							$header.addClass('shrink');
+							// Add a smooth, non-intrusive branding element into the nav
+							if ($('#nav-branding').length === 0) {
+								var $brand = $('<div id="nav-branding" class="nav-branding" aria-hidden="true"><div class="logo-wrap"></div><div class="title-wrap"></div></div>');
+								var $logoImg = $header.find('.logo img').clone();
+								$brand.find('.logo-wrap').append($logoImg);
+								$brand.find('.title-wrap').html($header.find('h1').html());
+								$nav.prepend($brand);
+								// slight delay to allow insertion then animate in
+								setTimeout(function() { $brand.addClass('visible'); }, 20);
+							}
 						},
 						leave: function() {
+							// Remove sticky state
 							$nav.removeClass('alt');
-							$header.removeClass('shrink');
+							// Hide and remove branding smoothly
+							var $b = $('#nav-branding');
+							if ($b.length) {
+								$b.removeClass('visible');
+								setTimeout(function() { $b.remove(); }, 300);
+							}
 						},
 					});
 

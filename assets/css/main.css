@@ -3282,7 +3282,7 @@ input, select, textarea {
 		-ms-transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		transition: background-color 0.2s ease, border-top-left-radius 0.2s ease, border-top-right-radius 0.2s ease, padding 0.2s ease;
 		background-color: #ffffff;
-		color: #636363;
+		color: #ffffff;
 		position: absolute;
 		width: 64em;
 		max-width: calc(100% - 4em);
@@ -3295,7 +3295,7 @@ input, select, textarea {
 	}
 
 		#nav input, #nav select, #nav textarea {
-			color: #636363;
+			color: #ffffff;
 		}
 
 		#nav a:hover {
@@ -3344,34 +3344,36 @@ input, select, textarea {
 				vertical-align: middle;
 			}
 
-				#nav ul li a {
-					-moz-transition: font-size 0.2s ease;
-					-webkit-transition: font-size 0.2s ease;
-					-ms-transition: font-size 0.2s ease;
-					transition: font-size 0.2s ease;
-					display: inline-block;
-					height: 2.25em;
-					line-height: 2.25em;
-					padding: 0 1.25em;
-					border: 0;
-					border-radius: 8px;
-					box-shadow: inset 0 0 0 1px transparent;
+			#nav ul li a {
+				-moz-transition: font-size 0.2s ease;
+				-webkit-transition: font-size 0.2s ease;
+				-ms-transition: font-size 0.2s ease;
+				transition: font-size 0.2s ease;
+				display: inline-block;
+				height: 2.25em;
+				line-height: 2.25em;
+				padding: 0 1.25em;
+				border: 0;
+				border-radius: 8px;
+				box-shadow: inset 0 0 0 1px transparent;
+				color: #545454;
+			}					#nav ul li a:hover {
+						background-color: rgba(0, 0, 0, 0.25);
+					}
+
+				#nav ul li a.active {
+					background-color: #cacaca;
+					box-shadow: none;
 				}
 
-					#nav ul li a:hover {
-						background-color: rgba(222, 222, 222, 0.25);
-					}
-
-					#nav ul li a.active {
-						background-color: #ffffff;
-						box-shadow: none;
-					}
-
-		#nav.alt {
+				#nav ul li a.active ~ #nav-branding .title-wrap,
+				#nav.alt #nav-branding.visible .title-wrap {
+					color: #3b3b3b;
+				}		#nav.alt {
 			position: fixed;
 			top: 0;
 			padding: 0.5em 1em;
-			background-color: rgba(247, 247, 247, 0.95);
+			background-color: rgba(240, 240, 240, 0.95);
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
 			z-index: 10000;
@@ -3426,7 +3428,7 @@ input, select, textarea {
 #nav .nav-branding .title-wrap {
 	font-weight: 900;
 	font-size: 1em;
-	color: #000000;
+	color: #232323;
 	line-height: 1;
 	white-space: nowrap;
 }

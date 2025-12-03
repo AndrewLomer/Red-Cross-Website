@@ -101,7 +101,7 @@ input, select, textarea {
 	body {
 		background-color: #000000;
 		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #000000 15%, #ff3251 45%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #000000 15%, #fb1767 55%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #ff0000 15%, #000000 55%);
 		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #000000 15%, #ff292c 35%);
 		background-image: url("images/overlay.png"), linear-gradient(45deg, #000000 15%, #ff2930 55%);
 	}

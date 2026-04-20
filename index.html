@@ -11,6 +11,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			@keyframes gradientShift {
+				0%   { background-position: center, 0% 50%; }
+				50%  { background-position: center, 100% 50%; }
+				100% { background-position: center, 0% 50%; }
+			}
+
+			body {
+				background-image: url("images/overlay.png"), linear-gradient(45deg, #000000 0%, #8b0000 25%, #ff2930 50%, #8b0000 75%, #000000 100%);
+				background-size: auto, 400% 400%;
+				animation: gradientShift 12s ease infinite;
+			}
+
+			/* Scroll fade-in */
+			.fade-in {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.7s ease, transform 0.7s ease;
+			}
+
+			.fade-in.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -65,7 +90,7 @@
 					<div id="main">
 
 						<!-- Introduction -->
-							<section id="intro" class="main">
+							<section id="intro" class="main fade-in">
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
@@ -86,7 +111,7 @@
 							</section>
 
 						<!-- First Section -->
-							<section id="first" class="main special">
+							<section id="first" class="main special fade-in">
 								<header class="major">
 									<h2>Schedule</h2>
 								</header>
@@ -104,7 +129,7 @@
 							</section>
 
 						<!-- Second Section -->
-							<section id="second" class="main special">
+							<section id="second" class="main special fade-in">
 								<header class="major">
 									<h2>Announcements</h2>
 									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
@@ -143,7 +168,7 @@
 							</section>
 
 						<!-- Section 3-->
-							<section id="third" class="main special">
+							<section id="third" class="main special fade-in">
 								<header class="major">
 									<h2>Leadership/Contact</h2>
 									<p>Meet our club leaders and find out how to get in touch!</p>
@@ -222,6 +247,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+		<script>
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			}, { threshold: 0.15 });
+
+			document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+		</script>
 
 	</body>
 </html>
